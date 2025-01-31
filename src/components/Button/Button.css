@@ -1,0 +1,22 @@
+.button {
+    font-weight: 700;
+    font-size: inherit;
+    font-family: inherit;
+    border: 2px solid #0050c4;
+    border-radius: 50rem;
+    padding: 10px 36px;
+    white-space: nowrap;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: fit-content;
+}
+
+.primaryButton {
+    color: #fff;
+    background-color: #0050c4;
+}
+
+.secondaryButton {
+    background-color: #fff;
+    color: #0050c4;
+}

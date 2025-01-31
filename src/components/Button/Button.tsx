@@ -1,18 +1,28 @@
 import React from 'react';
 
 // Styles & Assets
-// import styles from './Button.module.css';
+import './Button.css';
 
-interface ButtonProps {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     label: string
+    primary?: boolean
+    size?: 'small' | 'medium' | 'large'
 }
 
 const Button: React.FC<ButtonProps> = ({
-    label
+    label,
+    primary,
+    size,
+    ...props
 }) => {
 
     return (
-        <button>{label}</button>
+        <button
+            className={`button ${primary ? 'primaryButton' : 'secondaryButton'}`}
+            {...props}
+        >
+            {label}
+        </button>
     );
 };
 

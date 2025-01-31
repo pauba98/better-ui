@@ -1,0 +1,26 @@
+.tooltip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooltipText {
+    width: 120px;
+    background-color: rgba(97,97,97,.9);
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 0.7rem;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1500;
+    top: 20px;
+    left: -50px;
+}
+
+.tooltip:hover .tooltipText {
+    visibility: visible;
+}
