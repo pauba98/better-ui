@@ -1,0 +1,37 @@
+.Backdrop {
+    background-color: rgba(0, 0, 0, 0.32);
+    position: fixed; /* Change from absolute to fixed */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
+    opacity: 1;
+    display: flex;
+    overflow: hidden; /* Prevents scrolling on backdrop */
+}
+
+.Modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    z-index: 1000;
+
+    animation-name: appearModal;
+    animation-duration: .25s;
+}
+
+
+@keyframes appearModal {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}

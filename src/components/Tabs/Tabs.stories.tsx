@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import Tooltip from './Tooltip';
+import Tabs from './Tabs';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 
 const meta = {
-  title: 'BetterUI/Tooltip',
-  component: Tooltip,
+  title: 'BetterUI/Tabs',
+  component: Tabs,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
@@ -17,8 +17,8 @@ const meta = {
   argTypes: {
   },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-  args: { children: (<p>Hello World</p>), text: 'Esto es el tooltip' },
-} satisfies Meta<typeof Tooltip>;
+  args: { value: 0, onChange: () => undefined, children: ([]) },
+} satisfies Meta<typeof Tabs>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -27,18 +27,32 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   args: {
-    children: <p>Hello World</p>,
-    text: 'Mensaje del tooltip!',
+    value: 0,
+    onChange: () => undefined,
+    children: [
+      <Tabs.Tab value={0} label='Primera Tab' />,
+      <Tabs.Tab value={1} label='Segunda Tab' />
+    ]
   },
-};
+  render: ({ value, onChange, children }) => {
 
-export const Secondary: Story = {
-  args: {
-    children: <p>Hello World</p>,
-    text: 'Mensaje del tooltip!',
-    styles: {
-      backgroundColor: '#f00'
+    const [activeTab, setActiveTab] = useState(value);
+
+    useEffect(() => {
+      setActiveTab(value)
+    }, [value]);
+
+    const handleChangeTab = (id: number) => {
+      setActiveTab(id);
+      onChange();
     }
-  },
+
+    return (
+      <Tabs value={activeTab} onChange={handleChangeTab}>
+        {children}
+      </Tabs>
+    )
+
+  }
 };
 
