@@ -78,7 +78,7 @@ describe("Autocomplete", () => {
 
     test("Autocomplete with empty options", async () => {
         const noOptionsText = 'No options available.'
-        render(<Autocomplete options={[]} emptyOptionsMessage={noOptionsText}/>);
+        render(<Autocomplete options={[]} emptyOptionsMessage={noOptionsText} />);
         await userEvent.click(screen.getByRole('textbox'));
         expect(screen.queryByText(noOptionsText)).toBeInTheDocument()
     })
@@ -87,8 +87,12 @@ describe("Autocomplete", () => {
         const noOptionsText = 'Empty options list'
         render(<Autocomplete options={top100Films} />);
         await userEvent.type(screen.getByRole('textbox'), 'foekwf');
-        screen.debug()
         expect(screen.queryByText(noOptionsText)).toBeInTheDocument()
+    })
+
+    test("error autocomplete", async () => {
+        render(<Autocomplete options={[]} error={true} />);
+        expect(screen.getByRole('textbox')).toHaveClass('error')
     })
 
 });

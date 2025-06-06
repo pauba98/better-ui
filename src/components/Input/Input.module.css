@@ -1,0 +1,26 @@
+.input {
+    border: 1px solid rgba(0, 0, 0, .12);
+    border-radius: 6px;
+    padding: 6px 12px;
+    height: 100%;
+    width: 100%;
+}
+
+.input:disabled {
+    border-color: rgba(0, 0, 0, .06);
+    color: #ccc;
+}
+
+.input:focus-visible {
+    outline: none;
+}
+
+.input::placeholder {
+    font-size: 14px;
+    color: #acacac;
+    font-weight: 300;
+}
+
+.error {
+    border-color: #f00;
+}
