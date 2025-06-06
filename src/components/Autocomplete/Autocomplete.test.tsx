@@ -60,11 +60,7 @@ describe("Autocomplete", () => {
     });
 
     test("write the Autocomplete input no consider accents or casing", async () => {
-        const clickMock = jest.fn()
-        render(<Autocomplete
-            options={top100Films}
-            onChange={clickMock}
-        />
+        render(<Autocomplete options={top100Films} />
         );
         const inputElement = screen.getByRole('textbox');
         await userEvent.type(inputElement, 'aMe')
@@ -72,13 +68,27 @@ describe("Autocomplete", () => {
         expect(screen.queryByText('American Beauty')).toBeInTheDocument()
         expect(screen.queryByText('Requiem for a Dream')).toBeNull();
         await userEvent.clear(inputElement)
+        await userEvent.click(inputElement)
         await userEvent.type(inputElement, 'amé')
-        screen.debug()
         expect(screen.queryByText('American Beauty')).toBeInTheDocument()
         expect(screen.queryByText('Amélie')).toBeInTheDocument()
-        expect(screen.queryByText('American History X')).toBeInTheDocument();       
-        expect(screen.queryByText('Goodfellas')).toBeNull();       
+        expect(screen.queryByText('American History X')).toBeInTheDocument();
+        expect(screen.queryByText('Goodfellas')).toBeNull();
     });
 
+    test("Autocomplete with empty options", async () => {
+        const noOptionsText = 'No options available.'
+        render(<Autocomplete options={[]} emptyOptionsMessage={noOptionsText}/>);
+        await userEvent.click(screen.getByRole('textbox'));
+        expect(screen.queryByText(noOptionsText)).toBeInTheDocument()
+    })
+
+    test("No options typed autocomplete", async () => {
+        const noOptionsText = 'Empty options list'
+        render(<Autocomplete options={top100Films} />);
+        await userEvent.type(screen.getByRole('textbox'), 'foekwf');
+        screen.debug()
+        expect(screen.queryByText(noOptionsText)).toBeInTheDocument()
+    })
 
 });
