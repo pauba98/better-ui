@@ -1,0 +1,68 @@
+.select {
+    position: relative;
+    overflow: hidden;
+}
+
+.inputAutocomplete {
+    height: 36px;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, .12);
+    border-radius: 5px;
+    outline: none;
+    padding: 0 0.75em;
+    box-sizing: border-box;
+}
+
+.inputAutocomplete:not(.error):hover {
+    border-color: rgba(0, 0, 0, .87);
+}
+
+.error {
+    border-color: #f00;
+    border-width: 2px;
+}
+
+.label {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.options {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 300px;
+}
+
+.option {
+    padding: 12px 12px;
+    cursor: pointer;
+}
+
+.option {
+    word-break: break-word;
+}
+
+.option:not(.selectedOption):hover {
+    background-color: #0000000a;
+}
+
+.selectedOption {
+    background-color: #0000001d;
+}
+
+.error {
+    border-color: #f00;
+}
+
+.emptyMessage {
+    color: #acacac;
+    font-size: 14px;
+    padding: 12px;
+}
+
+.placeholder {
+    color: #acacac;
+    line-height: 18px;
+    font-size: 15px;
+}

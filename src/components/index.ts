@@ -3,3 +3,6 @@ export { default as Modal } from './Modal';
 export { default as Tooltip } from './Tooltip';
 export { default as Tabs } from './Tabs';
 export { default as Checkbox } from './Checkbox';
+export { default as Autocomplete } from './Autocomplete';
+
+import './index.css';

@@ -1,0 +1,25 @@
+.optionsDropdown {
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    transform: translateY(calc(100% + 5px));
+    border: 1px solid rgba(0, 0, 0, .12);
+    border-radius: 5px;
+    font-size: 90%;
+    z-index: 1001;
+    height: fit-content;
+    box-shadow: #00000012 0px 0px 3px;
+    animation: appear .2s linear;
+}
+
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
