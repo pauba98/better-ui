@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Autocomplete, { IOption } from './Autocomplete';
+import Autocomplete from './Autocomplete';
 import top100Films from '../../constants/constants';
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 

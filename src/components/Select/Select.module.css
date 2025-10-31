@@ -1,0 +1,80 @@
+.select {
+    width: 100%;
+    min-width: 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.select.disabled .selectButton {
+    opacity: .5;
+    cursor: default;
+}
+
+.selectButton {
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .12);
+    border-radius: 6px;
+    padding: 6px 12px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.label {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.options {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 300px;
+}
+
+.option {
+    padding: 12px 12px;
+    cursor: pointer;
+}
+
+.option {
+    word-break: break-word;
+}
+
+.option:not(.selectedOption):hover {
+    background-color: #0000000a;
+}
+
+.selectedOption {
+    background-color: #0000001d;
+}
+
+.error {
+    border-color: #f00;
+}
+
+.emptyMessage {
+    color: #acacac;
+    font-size: 14px;
+    padding: 12px;
+}
+
+.placeholder {
+    color: #acacac;
+    line-height: 18px;
+    font-size: 15px;
+}
+
+.disabledOption {
+    background-color: transparent;
+    cursor: default;
+    opacity: .5;
+    user-select: none;
+}
+
+.disabledOption:not(.selectedOption):hover {
+    background-color: transparent;
+}

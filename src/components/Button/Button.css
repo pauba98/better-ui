@@ -2,21 +2,63 @@
     font-weight: 700;
     font-size: inherit;
     font-family: inherit;
-    border: 2px solid #0050c4;
+    border: 2px solid var(--blue-primary-color);
     border-radius: 50rem;
     padding: 10px 36px;
     white-space: nowrap;
+    cursor: pointer;
     width: -moz-fit-content;
     width: -webkit-fit-content;
     width: fit-content;
 }
 
+.button:disabled{
+    cursor: default;
+    opacity: .8;
+}
+
 .primaryButton {
     color: #fff;
-    background-color: #0050c4;
+    background-color: var(--blue-primary-color);
+}
+
+.primaryButton:disabled {
+    background-color: #acacac;
+    border-color: #acacac;
 }
 
 .secondaryButton {
     background-color: #fff;
-    color: #0050c4;
+    color: var(--blue-primary-color);
+}
+
+.secondaryButton:disabled{
+    color: #acacac;
+    border-color: #acacac;
+}
+
+.tertiaryButton {
+    color: #fff;
+    background-color: var(--red-primary-color);
+    border-color: var(--red-primary-color);
+}
+
+.tertiaryButton:disabled{
+    background-color: #acacac;
+    border-color: #acacac;
+}
+
+.sm-button {
+    padding: 8px 24px;
+    font-size: .8rem;
+}
+
+.md-button {
+    padding: 10px 36px;
+    font-size: .9rem;
+}
+
+.lg-button {
+    padding: 12px 56px;
+    font-size: 1rem;
 }

@@ -1,4 +1,6 @@
 import type { Preview } from "@storybook/react";
+import "@fontsource/montserrat"; 
+import '../src/styles/global.css';
 
 const preview: Preview = {
   parameters: {

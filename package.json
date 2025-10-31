@@ -39,6 +39,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "react-docgen-typescript": "^2.4.0",
     "rollup": "^4.29.1",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -49,6 +50,7 @@
     "typescript": "^5.7.2"
   },
   "peerDependencies": {
+    "@fontsource/montserrat": "^5.2.8",
     "react": "19.0.0",
     "react-dom": "19.0.0"
   },

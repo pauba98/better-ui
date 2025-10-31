@@ -3,12 +3,8 @@ import React, { useEffect, useRef, useState } from 'react';
 // Styles & Assets
 import styles from './Autocomplete.module.css';
 
-// Hooks
-// import useTranslation from '../../../hooks/useTranslation';
-
 // Components
 import Dropdown from '../Helpers/Dropdown/Dropdown';
-import SelectTriangle from '../Helpers/SelectTriangle/SelectTriangle';
 
 // Models
 export interface IOption<T extends React.Key> {
