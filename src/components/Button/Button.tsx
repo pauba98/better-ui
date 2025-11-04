@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Styles & Assets
-import './Button.css';
+import styles from './Button.module.css';
 import { mergeClasses } from '../../utils/utils';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -20,15 +20,15 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
 
     const getVariantClass = () => {
-        if (variant === 'primary') return 'primaryButton';
-        if (variant === 'secondary') return 'secondaryButton';
-        if (variant === 'tertiary') return 'tertiaryButton';
+        if (variant === 'primary') return styles.primaryButton;
+        if (variant === 'secondary') return styles.secondaryButton;
+        if (variant === 'tertiary') return styles.tertiaryButton;
     }
 
     const getSizeClass = () => {
-        if (size === 'sm') return 'sm-button';
-        if (size === 'md') return 'md-button';
-        if (size === 'lg') return 'lg-button';
+        if (size === 'sm') return styles.smButton;
+        if (size === 'md') return styles.mdButton;
+        if (size === 'lg') return styles.lgButton;
     }
 
     const getCustomStyles = () => {
@@ -40,7 +40,7 @@ const Button: React.FC<ButtonProps> = ({
     return (
         <button
             {...props}
-            className={`button ${mergeClasses([props.className, getVariantClass(), getSizeClass()])}`}
+            className={`${styles.button} ${mergeClasses([props.className, getVariantClass(), getSizeClass()])}`}
             style={{ ...props.style, ...getCustomStyles() }}
         >
             {children}

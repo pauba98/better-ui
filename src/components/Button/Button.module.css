@@ -48,17 +48,17 @@
     border-color: #acacac;
 }
 
-.sm-button {
+.smButton {
     padding: 8px 24px;
     font-size: .8rem;
 }
 
-.md-button {
+.mdButton {
     padding: 10px 36px;
     font-size: .9rem;
 }
 
-.lg-button {
+.lgButton {
     padding: 12px 56px;
     font-size: 1rem;
 }

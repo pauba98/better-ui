@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 // Styles & Assets
-import './Modal.css';
+import styles from './Modal.module.css';
 import { getOrCreatePortalRoot, mergeClasses } from '../../utils/utils';
 import { useModal } from './useModal';
 
@@ -30,9 +30,9 @@ const Modal: React.FC<ModalProps> = (props) => {
     const { handleClick, handleInsideClick } = useModal({ onClose, show, position });
 
     const getPostionClass = () => {
-        if (position === 'center') return 'centerPosition';
-        if (position === 'top') return 'topPosition';
-        if (position === 'bottom') return 'bottomPosition';
+        if (position === 'center') return styles.centerPosition;
+        if (position === 'top') return styles.topPosition;
+        if (position === 'bottom') return styles.bottomPosition;
     }
 
     return (
@@ -40,15 +40,15 @@ const Modal: React.FC<ModalProps> = (props) => {
             {show && ReactDOM.createPortal(
                 <div
                     id={`modal-div-unique-id`}
-                    className={mergeClasses(['Backdrop', classesBackdrop ?? ''])}
+                    className={mergeClasses([styles.Backdrop, classesBackdrop ?? ''])}
                     onClick={handleClick}
                 >
                     <div
-                        className={mergeClasses(['Modal', classesModal ?? '', getPostionClass()])}
+                        className={mergeClasses([styles.Modal, classesModal ?? '', getPostionClass()])}
                         style={{ display: show ? 'flex' : 'none' }}
                         onClick={handleInsideClick}
                     >
-                        <div className='ModalContent'>
+                        <div className={styles.ModalContent}>
                             {children}
                         </div>
                     </div>

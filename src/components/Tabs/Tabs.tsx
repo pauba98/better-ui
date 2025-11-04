@@ -1,7 +1,7 @@
 import React, { createContext, useContext, Children } from 'react';
 
 // Styles & Assets
-import './Tabs.css';
+import styles from './Tabs.module.css';
 
 // Model
 export interface TabsProps {
@@ -42,7 +42,7 @@ const Tabs = ({ value, onChange, children }: TabsProps) => {
 
     return (
         <TabsContext.Provider value={{ activeTab, setActiveTab }}>
-            <div className={'tabsContainer'}>
+            <div className={styles.tabsContainer}>
                 {Children.map(children, (child) => {
                     if (!React.isValidElement(child) || (child.type as React.JSXElementConstructor<unknown>).name !== 'Tab') {
                         throw new Error('Tabs children must be Tab components');
@@ -50,7 +50,7 @@ const Tabs = ({ value, onChange, children }: TabsProps) => {
                     return child;
                 })}
                 <div
-                    className={'line'}
+                    className={styles.line}
                     style={{
                         left: `${left}%`,
                         width: (100 / length) + '%'
@@ -77,7 +77,7 @@ const Tab = ({ label, value }: TabProps) => {
 
     return (
         <button
-            className={`${'tab'} ${active ? 'active' : ''}`}
+            className={`${styles.tab} ${active ? styles.active : ''}`}
             onClick={onClick}
         >
             {label}

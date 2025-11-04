@@ -1,6 +1,6 @@
 {
   "name": "@pauba98/better-ui",
-  "version": "0.0.2",
+  "version": "0.0.23",
   "description": "BetterCare React Component Library",
   "type": "module",
   "scripts": {
@@ -39,6 +39,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "postcss-import": "^16.1.1",
     "react-docgen-typescript": "^2.4.0",
     "rollup": "^4.29.1",
     "rollup-plugin-dts": "^6.1.1",
@@ -51,8 +52,8 @@
   },
   "peerDependencies": {
     "@fontsource/montserrat": "^5.2.8",
-    "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
