@@ -13,3 +13,7 @@
     background: #fff;
     color: rgba(0, 0, 0);
 }
+
+.customBackdrop {
+    background: linear-gradient(256deg, rgba(27, 158, 209, .9) 0%, rgba(144, 42, 181, .9) 50%, rgba(237, 83, 91, .9) 100%);
+}

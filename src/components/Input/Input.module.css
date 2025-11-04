@@ -1,14 +1,18 @@
 .input {
     border: 1px solid rgba(0, 0, 0, .12);
+    box-sizing: border-box;
     border-radius: 6px;
     padding: 6px 12px;
     height: 100%;
     width: 100%;
+    font-family: inherit;
+    font-size: inherit;
 }
 
 .input:disabled {
-    border-color: rgba(0, 0, 0, .06);
-    color: #ccc;
+    border-color: rgba(0, 0, 0, .08);
+    opacity: .7;
+    background-color: inherit;
 }
 
 .input:focus-visible {
@@ -16,11 +20,13 @@
 }
 
 .input::placeholder {
-    font-size: 14px;
+    font-size: 80%;
     color: #acacac;
     font-weight: 300;
 }
 
 .error {
     border-color: #f00;
+    /* visually thicker, but doesn’t shift layout */
+    box-shadow: 0 0 0 1px #f00;
 }

@@ -3,71 +3,60 @@ import ReactDOM from 'react-dom';
 
 // Styles & Assets
 import './Modal.css';
+import { getOrCreatePortalRoot, mergeClasses } from '../../utils/utils';
+import { useModal } from './useModal';
 
-
-const Modal: React.FC<{
+export interface ModalProps {
     show: boolean,
     onClose: (e: React.MouseEvent) => void,
     classesModal?: string,
     classesBackdrop?: string,
+    position?: 'top' | 'center' | 'bottom'
     children: React.ReactNode,
-}>
-    = ({ show, onClose, classesModal, classesBackdrop, children }) => {
+}
+const Modal: React.FC<ModalProps> = (props) => {
 
-        const handleInsideClick = (e: React.FormEvent) => {
-            e.stopPropagation();
-        };
+    const {
+        show,
+        onClose,
+        classesModal,
+        classesBackdrop,
+        position = 'center',
+        children
+    } = props;
 
-        const handleClick = (e: React.MouseEvent) => {
-            e.stopPropagation();
-            onClose(e)
-        }
+    const modalElement = getOrCreatePortalRoot('better-ui-root');
 
-        useEffect(() => {
-            if (show) {
-                const scrollY = window.scrollY;
-                document.body.style.position = 'fixed';
-                document.body.style.width = '100%';
-                if (document.body.clientHeight < document.body.scrollHeight)
-                    document.body.style.overflowY = 'scroll';
-                else document.body.style.overflowY = '';
-                document.body.style.top = `-${scrollY}px`
-            }
-            else {
-                if (document.body.style.position === 'fixed') {
-                    const scrollY = Number(document.body.style.top.slice(0, -2));
-                    document.body.style.position = '';
-                    document.body.style.width = '';
-                    document.body.style.overflowY = '';
-                    document.body.style.top = '';
-                    if (!Number.isNaN(scrollY)) window.scrollTo(0, -scrollY)
-                }
-            }
+    const { handleClick, handleInsideClick } = useModal({ onClose, show, position });
 
-        }, [show]);
+    const getPostionClass = () => {
+        if (position === 'center') return 'centerPosition';
+        if (position === 'top') return 'topPosition';
+        if (position === 'bottom') return 'bottomPosition';
+    }
 
-
-        return (
-            <>
-                {show && ReactDOM.createPortal(
+    return (
+        <>
+            {show && ReactDOM.createPortal(
+                <div
+                    id={`modal-div-unique-id`}
+                    className={mergeClasses(['Backdrop', classesBackdrop ?? ''])}
+                    onClick={handleClick}
+                >
                     <div
-                        id='modal-root'
-                        className={`${'Backdrop'} ${classesBackdrop ?? ''}`}
-                        onClick={handleClick}>
-                        <div
-                            className={`Modal ${classesModal ?? ''}`}
-                            style={{
-                                display: show ? 'flex' : 'none',
-                            }}
-                            onClick={handleInsideClick}
-                        >
+                        className={mergeClasses(['Modal', classesModal ?? '', getPostionClass()])}
+                        style={{ display: show ? 'flex' : 'none' }}
+                        onClick={handleInsideClick}
+                    >
+                        <div className='ModalContent'>
                             {children}
                         </div>
                     </div>
-                    , document.body as HTMLElement
-                )}
-            </>
-        );
-    };
+                </div>
+                , modalElement as HTMLElement
+            )}
+        </>
+    );
+};
 
 export default Modal;
